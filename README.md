@@ -19,6 +19,8 @@ assets/js/app.min.js       bundle usado pelo site (gerado)
 assets/fonts, assets/img   fontes e imagens locais (AVIF, WebP e JPEG)
 scripts/check-prices.mjs   confere se o HTML bate com plans.js
 scripts/build.sh           confere preços e gera os bundles minificados
+scripts/process-couple-images.mjs  gera AVIF/WebP/JPEG a partir de assets/img/source/
+package.json               sharp (dev) para o script de imagens
 ```
 
 ## Desenvolvimento local
@@ -46,12 +48,21 @@ git push origin main
 
 O push dispara `.github/workflows/check.yml`, que falha se os preços ou os bundles ficarem desatualizados — rode `sh scripts/build.sh` localmente antes de empurrar.
 
-## Pendente: identidade e prova social (precisa de insumo real, não inventar)
+## Fotos do casal (Instagram → site)
 
-Itens de maior impacto em conversão, sem conteúdo definido ainda:
+Originais nomeados em `assets/img/source/` (`01-hero.png` … `05-cinema.png`). Para regenerar as variantes publicadas:
 
-- **Nome/logo do fotógrafo no cabeçalho.** Hoje o `<header>` só mostra "Pré-Wedding" (`index.html`, `.brand-copy`). Quando houver nome e/ou logo, troque o texto e, se houver arquivo de marca, adicione um `<img>`/SVG dentro de `.brand-mark` no lugar do ícone genérico atual.
-- **Fotos reais do portfólio.** Hoje as imagens em `assets/img/` (`hero-*`, `detail-*`, `story-*`, `cinema-*`, `og-image.jpg`) são de banco. Para trocar: gere as mesmas variantes (AVIF/WebP/JPEG, mesmas dimensões e nomes de arquivo) e substitua — nenhuma mudança de HTML/CSS é necessária se os nomes forem mantidos.
-- **Depoimentos / prova social.** Não existe seção no momento. Quando houver depoimentos reais de casais atendidos, é possível inserir uma seção nova entre `#diferencas` e `#experience-spot` (ou entre `#pagamento` e `#experiencia`) seguindo o padrão visual de `.section-stack` + `.eyebrow` já usado nas outras seções.
+```bash
+npm install
+node scripts/process-couple-images.mjs
+sh scripts/build.sh
+```
 
-Nenhum desses itens foi preenchido com texto ou imagem fictícia — fazer isso arriscaria passar informação falsa para os clientes.
+Isso sobrescreve `hero-*`, `detail-*`, `story-*`, `cinema-*` e `og-image.jpg` em `assets/img/`. O hero usa `02-detail.png` (retrato principal) e o inset `01-hero.png`.
+
+A data do namoro (`2022-07-01`) fica em `plans.js` → `config.couple.relationshipStart`; o hero exibe a linha fixa e a contagem “há X anos e Y meses” via `main.js`.
+
+## Pendente: identidade e prova social
+
+- **Nome/logo do fotógrafo no cabeçalho** (hoje só “Pré-Wedding” em `.brand-copy`).
+- **Depoimentos** de outros casais atendidos — ainda sem seção no HTML.

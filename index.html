@@ -114,6 +114,7 @@
         <div class="hero-copy hero-enter">
           <h1><span class="hero-names">Daniel &amp; Renanda</span> Uma história de vocês, em foto e cinema.</h1>
           <p class="hero-lead line-desktop">Naturalidade, luz cinematográfica e a emoção de quem está prestes a dizer sim.</p>
+          <p id="coupleTenure" class="hero-tenure" aria-live="polite"><span class="hero-tenure-count"></span><span class="hero-tenure-since"></span></p>
           <div class="hero-actions hero-actions-primary">
             <a class="button button-primary wa-cta" href="https://wa.me/5531995592422" data-wa-suffix="" target="_blank" rel="noopener noreferrer">
              WhatsApp
@@ -128,7 +129,7 @@
             <picture>
               <source type="image/avif" srcset="assets/img/hero-854.avif 854w, assets/img/hero-480.avif 480w" sizes="(max-width: 767px) 88vw, 480px" />
               <source type="image/webp" srcset="assets/img/hero-854.webp 854w, assets/img/hero-480.webp 480w" sizes="(max-width: 767px) 88vw, 480px" />
-              <img src="assets/img/hero-854.jpg" srcset="assets/img/hero-854.jpg 854w, assets/img/hero-480.jpg 480w" sizes="(max-width: 767px) 88vw, 480px" alt="Casal em ensaio pré-wedding ao ar livre" width="854" height="1067" fetchpriority="high" decoding="async" />
+              <img src="assets/img/hero-854.jpg" srcset="assets/img/hero-854.jpg 854w, assets/img/hero-480.jpg 480w" sizes="(max-width: 767px) 88vw, 480px" alt="Daniel e Renanda em momento íntimo, quase beijando" width="854" height="1067" fetchpriority="high" decoding="async" />
             </picture>
           </figure>
           <!-- PHOTO 02: DETAIL -->
@@ -182,7 +183,7 @@
       <div class="container">
         <div class="story-asym">
           <h2>Não é sobre posar para a câmera.</h2>
-          <p>É sobre criar espaço para que os gestos, os olhares e aquilo que existe entre vocês apareçam naturalmente.</p>
+          <p>É sobre criar espaço para que os gestos, os olhares e aquilo que existe entre vocês apareçam naturalmente — como na história que vocês já vivem juntos desde 2022.</p>
         </div>
         <!-- PHOTO 03: STORY HORIZONTAL -->
         <figure class="story-wide reveal-image motion-image-zoom">
@@ -190,7 +191,7 @@
             <picture>
               <source type="image/avif" srcset="assets/img/story-1800.avif 1800w, assets/img/story-900.avif 900w" sizes="(max-width: 1480px) 100vw, 1480px" />
               <source type="image/webp" srcset="assets/img/story-1800.webp 1800w, assets/img/story-900.webp 900w" sizes="(max-width: 1480px) 100vw, 1480px" />
-              <img src="assets/img/story-1800.jpg" srcset="assets/img/story-1800.jpg 1800w, assets/img/story-900.jpg 900w" sizes="(max-width: 1480px) 100vw, 1480px" alt="Casal em ensaio pré-wedding com luz natural" width="1800" height="1200" loading="lazy" decoding="async" />
+              <img src="assets/img/story-1800.jpg" srcset="assets/img/story-1800.jpg 1800w, assets/img/story-900.jpg 900w" sizes="(max-width: 1480px) 100vw, 1480px" alt="Silhueta do casal em barco ao pôr do sol" width="1800" height="1200" loading="lazy" decoding="async" />
             </picture>
           </div>
         </figure>
@@ -417,7 +418,7 @@
           <picture>
             <source type="image/avif" srcset="assets/img/cinema-1600.avif 1600w, assets/img/cinema-800.avif 800w" sizes="(max-width: 900px) 100vw, 640px" />
             <source type="image/webp" srcset="assets/img/cinema-1600.webp 1600w, assets/img/cinema-800.webp 800w" sizes="(max-width: 900px) 100vw, 640px" />
-            <img src="assets/img/cinema-1600.jpg" srcset="assets/img/cinema-1600.jpg 1600w, assets/img/cinema-800.jpg 800w" sizes="(max-width: 900px) 100vw, 640px" alt="Momento íntimo de casal em ensaio pré-wedding ao ar livre" width="1600" height="1000" loading="lazy" decoding="async" />
+            <img src="assets/img/cinema-1600.jpg" srcset="assets/img/cinema-1600.jpg 1600w, assets/img/cinema-800.jpg 800w" sizes="(max-width: 900px) 100vw, 640px" alt="Daniel e Renanda em momento de oração, de mãos dadas" width="1600" height="1000" loading="lazy" decoding="async" />
           </picture>
         </figure>
       </div>
@@ -464,39 +465,41 @@
               </div>
 
               <div class="payment-body" id="paymentContent" role="tabpanel" aria-live="polite" tabindex="0" aria-labelledby="tab-experience">
-                <div class="payment-title-row">
-                  <div>
-                    <small>Pacote selecionado</small>
-                    <strong id="payPlanName">Experience</strong>
+                <div class="payment-summary">
+                  <div class="payment-title-row">
+                    <div>
+                      <small>Pacote selecionado</small>
+                      <strong id="payPlanName">Experience</strong>
+                    </div>
+                    <span class="selected-badge" id="payBadge">Recomendado</span>
                   </div>
-                  <span class="selected-badge" id="payBadge">Recomendado</span>
+                  <p class="pay-list-price">Valor do pacote: <strong id="payListPrice">R$ 2.990</strong></p>
                 </div>
-                <p class="pay-list-price">Valor do pacote: <strong id="payListPrice">R$ 2.990</strong></p>
 
                 <div class="payment-options">
-                  <div class="pay-option pay-option--pix">
+                  <div class="pay-option pay-option--pix pay-option-layout">
                     <div class="pay-pix-badges">
                       <span class="pay-best-badge">Melhor valor</span>
                       <span class="pay-discount-pill" id="payDiscountPill">−6% no Pix</span>
                     </div>
                     <div class="pay-option-head">
-                      <strong>Pix à vista</strong>
+                      <strong class="pay-option-label">Pix à vista</strong>
                       <strong class="pay-value" id="payPix">R$ 2.800</strong>
                     </div>
-                    <p>Condição com desconto no Pix.</p>
+                    <p class="pay-option-note">Condição com desconto no Pix.</p>
                   </div>
 
-                  <div class="pay-option pay-option--direct">
+                  <div class="pay-option pay-option--direct pay-option-layout">
                     <div class="pay-option-head">
-                      <strong>Pix parcelado direto</strong>
+                      <strong class="pay-option-label">Pix parcelado direto</strong>
                       <strong class="pay-value" id="payDirect">3× de R$ 930</strong>
                     </div>
-                    <p>Sem juros. A última parcela deve estar quitada antes do ensaio.</p>
+                    <p class="pay-option-note">Sem juros. A última parcela deve estar quitada antes do ensaio.</p>
                   </div>
 
-                  <div class="pay-option pay-option--card">
+                  <div class="pay-option pay-option--card pay-option-layout">
                     <div class="pay-option-head">
-                      <strong>Cartão de crédito</strong>
+                      <strong class="pay-option-label">Cartão de crédito</strong>
                       <strong class="pay-value">Até 18×</strong>
                     </div>
                     <span class="pay-label-mp">Simulação no cartão · acréscimos do parcelamento</span>

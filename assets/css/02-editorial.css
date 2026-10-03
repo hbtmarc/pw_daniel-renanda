@@ -150,6 +150,21 @@ nav a:focus-visible::after { transform: scaleX(1); }
   border: 3px solid var(--bg);
 }
 
+.hero-photo-secondary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--champagne-text) 36%, transparent);
+  mix-blend-mode: multiply;
+}
+
+html[data-theme="dark"] .hero-photo-secondary::after {
+  mix-blend-mode: soft-light;
+  background: color-mix(in srgb, var(--champagne-text) 28%, transparent);
+}
+
 .hero-photo-secondary img,
 .hero-photo-secondary .hero-photo-placeholder {
   width: 100%;
@@ -224,6 +239,66 @@ nav a:focus-visible::after { transform: scaleX(1); }
   color: var(--text-soft);
   line-height: 1.6;
   max-width: min(42rem, 100%);
+}
+
+.hero-tenure {
+  display: block;
+  width: fit-content;
+  max-width: min(100%, 26rem);
+  margin: 0 0 clamp(20px, 3vw, 28px);
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-sm);
+  text-wrap: balance;
+}
+
+.hero-tenure:not(:has(.hero-tenure-count:not(:empty))) {
+  display: none;
+}
+
+.hero-tenure-count {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: color-mix(in srgb, var(--champagne-text) 88%, var(--text));
+  text-shadow: 0 1px 0 color-mix(in srgb, var(--champagne) 20%, transparent);
+}
+
+.hero-tenure-since {
+  display: block;
+  margin-top: 0.25em;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--text-soft) 78%, var(--champagne-text));
+}
+
+@media (min-width: 768px) {
+  .hero-tenure:has(.hero-tenure-count:not(:empty)) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 10px;
+  }
+  .hero-tenure-count,
+  .hero-tenure-since {
+    display: inline;
+    margin-top: 0;
+  }
+  .hero-tenure-since::before {
+    content: "·";
+    margin-right: 10px;
+    font-weight: 400;
+    color: var(--line-strong);
+    letter-spacing: 0;
+  }
 }
 
 .story-meta-line {

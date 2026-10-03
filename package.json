@@ -1,0 +1,7 @@
+{
+  "name": "pw-daniel-renanda",
+  "private": true,
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

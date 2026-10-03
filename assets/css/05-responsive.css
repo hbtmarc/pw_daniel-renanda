@@ -225,6 +225,25 @@ details p { max-width: 100%; margin-right: 0; }
     font-size: 1.12em;
     max-width: 100%;
   }
+  .hero-tenure {
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+    padding: 16px 18px;
+    text-align: center;
+    display: block;
+  }
+  .hero-tenure-count,
+  .hero-tenure-since {
+    display: block;
+    text-align: center;
+  }
+  .hero-tenure-since {
+    margin-top: 0.35em;
+  }
+  .hero-tenure-since::before {
+    content: none;
+  }
   .hero-lead {
     font-size: clamp(17px, 4.6vw, 20px);
     line-height: 1.55;
@@ -236,7 +255,6 @@ details p { max-width: 100%; margin-right: 0; }
     align-items: center;
     width: 100%;
   }
-
   .section-heading,
   .section-heading--solo,
   .section-stack,
@@ -342,6 +360,11 @@ details p { max-width: 100%; margin-right: 0; }
     gap: 4px;
     overflow: visible;
   }
+  #pagamento .package-selector {
+    margin: 0;
+    padding: 6px;
+    gap: 4px;
+  }
   .selector-button {
     font-size: clamp(10px, 2.85vw, 12px);
     padding: 9px 4px;
@@ -380,9 +403,22 @@ details p { max-width: 100%; margin-right: 0; }
     position: static;
     max-width: 100%;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
-  .pay-option--pix { padding-top: 18px; }
+  #pagamento .pay-option-layout .pay-option-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+  #pagamento .pay-option-layout .pay-option-head .pay-value {
+    white-space: normal;
+    text-align: center;
+  }
+  #pagamento .payment-summary {
+    text-align: center;
+  }
   .compare-show-table,
   .compare-scroll-hint { display: none !important; }
   .compare-mobile-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }

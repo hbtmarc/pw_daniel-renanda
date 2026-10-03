@@ -263,20 +263,11 @@ nav a:hover {
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
+  display: inline-block;
   color: var(--primary);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .14em;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 34px;
-  height: 1px;
-  background: currentColor;
 }
 
 h1, h2, h3, p { margin-top: 0; }

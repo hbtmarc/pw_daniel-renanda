@@ -27,6 +27,51 @@
   });
   syncThemeUI();
 
+  function relationshipStartLabel(isoDate) {
+    var couple = P.config.couple || {};
+    if (couple.relationshipStartLabel) return couple.relationshipStartLabel;
+    var start = new Date(isoDate + 'T12:00:00');
+    var dd = String(start.getDate()).padStart(2, '0');
+    var mm = String(start.getMonth() + 1).padStart(2, '0');
+    var yy = String(start.getFullYear()).slice(-2);
+    return dd + '/' + mm + '/' + yy;
+  }
+
+  function formatRelationshipTenure(isoDate) {
+    var start = new Date(isoDate + 'T12:00:00');
+    var now = new Date();
+    var months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+    if (now.getDate() < start.getDate()) months -= 1;
+    if (months < 0) months = 0;
+    var years = Math.floor(months / 12);
+    var rem = months % 12;
+    var sinceLabel = relationshipStartLabel(isoDate);
+    var count;
+    if (years === 0 && rem === 0) count = 'Há menos de um mês e contando';
+    else if (years === 0) count = 'Há ' + rem + (rem === 1 ? ' mês' : ' meses') + ' e contando';
+    else if (rem === 0) count = 'Há ' + years + (years === 1 ? ' ano' : ' anos') + ' e contando';
+    else {
+      count =
+        'Há ' +
+        years +
+        (years === 1 ? ' ano' : ' anos') +
+        ' e ' +
+        rem +
+        (rem === 1 ? ' mês' : ' meses') +
+        ' e contando';
+    }
+    return { count: count, since: 'desde ' + sinceLabel };
+  }
+
+  var coupleTenureEl = $('#coupleTenure');
+  if (coupleTenureEl && P.config.couple && P.config.couple.relationshipStart) {
+    var tenure = formatRelationshipTenure(P.config.couple.relationshipStart);
+    var countEl = coupleTenureEl.querySelector('.hero-tenure-count');
+    var sinceEl = coupleTenureEl.querySelector('.hero-tenure-since');
+    if (countEl) countEl.textContent = tenure.count;
+    if (sinceEl) sinceEl.textContent = tenure.since;
+  }
+
   /* —— Rolagem: nativa, com offset via scroll-margin-top no CSS —— */
   function scrollToEl(el) {
     if (el) el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
