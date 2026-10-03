@@ -1082,7 +1082,8 @@ html[data-theme="dark"] .cta-actions .button {
 }
 
 html[data-theme="dark"] .cta-actions .button.secondary-inverse {
-  border-color: rgba(21,32,24,.23);
+  background: transparent;
+  border-color: rgba(21, 32, 24, 0.35);
   color: #152018;
 }
 
