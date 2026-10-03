@@ -15,52 +15,76 @@
         'Gostaríamos de conversar sobre data, local e qual experiência faz mais sentido para nós — ' +
         'podemos alinhar os próximos passos?'
     },
-    // Desconto do Pix à vista e arredondamento comercial (para baixo, em múltiplos de R$ 10).
-    pixDiscount: 0.05,
-    pixRoundTo: 10,
     installmentsDirect: 3,
-    cardSimulationDate: '02/10/2026'
+    cardSimulationDate: '03/10/2026'
   };
 
   /*
+   * pix: valor à vista informado comercialmente.
+   * pixDirectInstallment: parcela do Pix 3× direto — valor comercial redondo,
+   * decisão deliberada (não é pix/3). Nos três pacotes a soma das 3 parcelas
+   * fica R$ 10 abaixo do Pix à vista (ex.: Essencial 3×430=1290 vs pix 1300);
+   * é intencional e consistente nos três planos, não um erro de arredondamento.
+   * Não há texto na página que afirme que as parcelas somam o valor do Pix —
+   * ao alterar esses números, mantenha essa ausência de reivindicação.
    * Valores de cartão vêm da simulação do link de pagamento (não são calculáveis aqui).
-   * x1 = 1× no cartão; x12/x18 = valor da parcela; t12/t18 = total cobrado.
    */
   var PLANS = {
     essential: {
       name: 'Essencial',
-      price: 1690,
+      price: 1390,
+      pix: 1300,
+      pixDirectInstallment: 430,
       recommended: false,
-      card: { x1: 1778.57, x12: 180.98, t12: 2171.81, x18: 128.44, t18: 2311.96 }
+      card: {
+        x1: 1462.85,
+        x3: 542.38, t3: 1627.13,
+        x6: 278.72, t6: 1672.33,
+        x12: 148.85, t12: 1786.29,
+        x18: 105.64, t18: 1901.56
+      }
     },
     signature: {
       name: 'Signature',
-      price: 2490,
-      recommended: true,
-      card: { x1: 2620.5, x12: 266.66, t12: 3199.89, x18: 189.24, t18: 3406.39 }
+      price: 2390,
+      pix: 2200,
+      pixDirectInstallment: 730,
+      recommended: false,
+      card: {
+        x1: 2515.26,
+        x3: 932.57, t3: 2797.72,
+        x6: 479.24, t6: 2875.45,
+        x12: 255.95, t12: 3071.38,
+        x18: 181.64, t18: 3269.59
+      }
     },
     experience: {
       name: 'Experience',
       price: 2990,
-      recommended: false,
-      card: { x1: 3146.71, x12: 320.2, t12: 3842.45, x18: 227.24, t18: 4090.41 }
+      pix: 2800,
+      pixDirectInstallment: 930,
+      recommended: true,
+      card: {
+        x1: 3146.71,
+        x3: 1166.70, t3: 3500.09,
+        x6: 599.55, t6: 3597.32,
+        x12: 320.20, t12: 3842.45,
+        x18: 227.24, t18: 4090.41
+      }
     }
   };
 
-  function roundDown(value, step) {
-    return Math.round(Math.floor(value / step + 1e-9) * step * 100) / 100;
-  }
-
   function pixPrice(plan) {
-    return roundDown(plan.price * (1 - CONFIG.pixDiscount), CONFIG.pixRoundTo);
+    return plan.pix;
   }
 
   function directInstallment(plan) {
-    return Math.round((plan.price / CONFIG.installmentsDirect) * 100) / 100;
+    return plan.pixDirectInstallment;
   }
 
   function discountPct(plan) {
-    return Math.round((1 - pixPrice(plan) / plan.price) * 100);
+    if (!plan.price) return 0;
+    return Math.round((1 - plan.pix / plan.price) * 100);
   }
 
   function brl(value, forceCents) {
@@ -90,6 +114,5 @@
     whatsappUrl: whatsappUrl
   };
 
-  // Permite validação em Node sem DOM.
   if (typeof module !== 'undefined' && module.exports) module.exports = global.PROPOSTA;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -406,14 +406,7 @@ html[data-theme="dark"] .pay-discount-pill {
 }
 .pay-copy:hover { color: var(--primary); border-color: var(--primary); }
 
-/* Flow + FAQ */
-.flow { gap: 12px; border: 0; }
-.flow-item, .flow-item:first-child, .flow-item:last-child, .flow-item:nth-child(2n), .flow-item:nth-child(2n+1) {
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 22px 20px;
-  background: var(--surface);
-}
+/* FAQ */
 .faq-list { border: 0; display: grid; gap: 10px; }
 .faq-list details {
   border: 1px solid var(--line);
@@ -427,21 +420,17 @@ html[data-theme="dark"] .pay-discount-pill {
 .cta-shell { border-radius: var(--r-xl); }
 
 /* Misc radius */
-.story-wide, .hero-photo-placeholder { border-radius: inherit; }
 .story-wide { position: relative; border-radius: var(--r-xl); overflow: hidden; }
 .toast, .mobile-cta { border-radius: var(--r-pill); }
 .mobile-cta { border-radius: 24px; }
 .icon-button, .menu-button { border-radius: 50%; }
 
 /* Motion helpers */
-.tilt-ready { will-change: transform; }
-.count-up { font-variant-numeric: tabular-nums; }
 .detail-body { overflow: hidden; }
 
 @media (max-width: 767px) {
   .package-row { gap: 14px; }
   .package-col, .package-col:last-child { padding: 26px 22px; }
-  .flow { grid-template-columns: 1fr; }
   .experience-spot-inner { padding: 26px 22px; }
 }
 

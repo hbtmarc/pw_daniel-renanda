@@ -1,0 +1,33 @@
+name: Checar preços e bundles
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Conferir preços (HTML vs plans.js)
+        run: node scripts/check-prices.mjs
+
+      - name: Gerar bundles e falhar se divergirem do commit
+        run: |
+          sh scripts/build.sh
+          if ! git diff --quiet -- assets/css/styles.min.css assets/js/app.min.js; then
+            echo "::error::Os bundles (styles.min.css / app.min.js) estão desatualizados."
+            echo "Rode 'sh scripts/build.sh' localmente e faça commit do resultado."
+            git diff --stat -- assets/css/styles.min.css assets/js/app.min.js
+            exit 1
+          fi

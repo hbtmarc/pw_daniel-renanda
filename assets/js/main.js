@@ -75,10 +75,14 @@
     setText('payPlanName', plan.name);
     setText('payListPrice', P.brl(plan.price));
     setText('payPix', P.brl(P.pixPrice(plan)));
-    setText('payDirect', P.config.installmentsDirect + '× de ' + P.brl(P.directInstallment(plan), true));
+    setText('payDirect', P.config.installmentsDirect + '× de ' + P.brl(P.directInstallment(plan)));
     var pct = P.discountPct(plan);
     setText('payDiscountPill', pct > 0 ? '−' + pct + '% no Pix' : 'Pix à vista');
     setText('mp1x', P.brl(c.x1, true));
+    setText('mp3x', '3× ' + P.brl(c.x3, true));
+    setText('mp3Total', 'total: ' + P.brl(c.t3, true));
+    setText('mp6x', '6× ' + P.brl(c.x6, true));
+    setText('mp6Total', 'total: ' + P.brl(c.t6, true));
     setText('mp12x', '12× ' + P.brl(c.x12, true));
     setText('mp12Total', 'total: ' + P.brl(c.t12, true));
     setText('mp18x', '18× ' + P.brl(c.x18, true));
@@ -124,7 +128,7 @@
   (function initialPlan() {
     var wanted = null;
     try { wanted = new URLSearchParams(window.location.search).get('plano'); } catch (err) { /* ignora */ }
-    var key = wanted && P.plans[wanted] ? wanted : 'signature';
+    var key = wanted && P.plans[wanted] ? wanted : 'experience';
     payTabs.forEach(function (t) {
       var on = t.dataset.plan === key;
       t.setAttribute('aria-selected', String(on));
@@ -150,14 +154,22 @@
     if (!compareDl) return;
     var col = planOrder.indexOf(planKey) + 1;
     compareDl.textContent = '';
+    /* Cada seção vira um <dl> próprio: o título fica fora da lista de definição
+       (um <dl> só pode conter grupos dt+dd, não um rótulo solto) — estrutura
+       válida para leitores de tela, confirmada com axe-core. */
+    var currentList = null;
     compareBodyRows.forEach(function (row) {
       if (row.classList.contains('compare-row--section')) {
-        var heading = document.createElement('div');
+        var heading = document.createElement('p');
         heading.className = 'compare-mobile-section';
         heading.textContent = row.textContent.trim();
         compareDl.appendChild(heading);
+        currentList = document.createElement('dl');
+        currentList.className = 'compare-mobile-section-list';
+        compareDl.appendChild(currentList);
         return;
       }
+      if (!currentList) return;
       var cells = Array.prototype.slice.call(row.children);
       if (!cells[col]) return;
       var wrap = document.createElement('div');
@@ -169,20 +181,22 @@
       dd.innerHTML = cells[col].innerHTML.trim();
       wrap.appendChild(dt);
       wrap.appendChild(dd);
-      compareDl.appendChild(wrap);
+      currentList.appendChild(wrap);
     });
   }
 
   if (compareTabs.length) {
     initTablist(compareTabs, function (tab) { renderCompareMobile(tab.dataset.comparePlan); });
-    renderCompareMobile('signature');
+    renderCompareMobile('experience');
   }
 
   var compareShowTable = $('#compareShowTable');
+  var compareScrollHint = $('#compareScrollHint');
   if (compareShowTable && compareDesktop && compareMobile) {
     compareShowTable.addEventListener('click', function () {
       compareMobile.classList.add('is-hidden');
       compareDesktop.classList.add('is-forced');
+      if (compareScrollHint) compareScrollHint.hidden = false;
       scrollToEl(compareDesktop);
     });
   }

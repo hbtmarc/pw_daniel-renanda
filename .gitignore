@@ -1,1 +1,5 @@
 .DS_Store
+
+# Skills/config do Cursor (não fazem parte do site publicado)
+.agents/
+skills-lock.json

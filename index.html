@@ -90,7 +90,7 @@
   </header>
 
   <div class="nav-drawer-backdrop" id="navBackdrop" hidden></div>
-  <aside class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-labelledby="navDrawerTitle" hidden>
+  <div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-labelledby="navDrawerTitle" hidden>
     <div class="nav-drawer-head">
       <strong id="navDrawerTitle">Menu</strong>
       <button class="icon-button" id="menuClose" type="button" aria-label="Fechar menu">
@@ -106,7 +106,7 @@
     <a href="#pagamento" data-nav-close>Pagamento</a>
     <a href="#experiencia" data-nav-close>Processo</a>
     <a href="#duvidas" data-nav-close>Dúvidas</a>
-  </aside>
+  </div>
 
   <main id="conteudo">
     <section class="hero" id="topo">
@@ -208,17 +208,17 @@
           <article class="package-col">
             <h3>Essencial</h3>
             <p class="package-sub">Fotografia</p>
-            <p class="package-price">R$ 1.690</p>
-            <p class="package-pix">Pix R$ 1.600</p>
+            <p class="package-price">R$ 1.390</p>
+            <p class="package-pix">Pix R$ 1.300</p>
             <ul class="package-list">
               <li>Até 1h30 de produção</li>
-              <li>~50 fotos tratadas</li>
-              <li>1 local do ensaio · 1 visual</li>
+              <li>~35 fotos tratadas</li>
+              <li>1 local · 1 visual</li>
             </ul>
             <details class="package-more">
               <summary>Ver tudo que está incluído</summary>
               <ul class="package-list package-list-extra">
-                <li>Sem vídeo · sem drone</li>
+                <li>Sem filme · sem drone · sem reel</li>
                 <li>Galeria digital privada</li>
               </ul>
             </details>
@@ -228,22 +228,21 @@
             </div>
           </article>
 
-          <article class="package-col is-recommended">
-            <span class="package-badge">Recomendado</span>
+          <article class="package-col">
             <h3>Signature</h3>
             <p class="package-sub">Foto + filme</p>
-            <p class="package-price">R$ 2.490</p>
-            <p class="package-pix">Pix R$ 2.360</p>
+            <p class="package-price">R$ 2.390</p>
+            <p class="package-pix">Pix R$ 2.200</p>
             <ul class="package-list">
-              <li>Até 2h30 · até 65 fotos</li>
+              <li>Até 2h · ~45 fotos</li>
               <li>Filme até 60s</li>
             </ul>
             <details class="package-more">
               <summary>Ver tudo que está incluído</summary>
               <ul class="package-list package-list-extra">
                 <li>Até 2 visuais</li>
-                <li>1 local principal + ponto próximo</li>
-                <li>Gimbal · drone*</li>
+                <li>Até 2 locais, o segundo próximo ao primeiro</li>
+                <li>Drone* quando viável</li>
                 <li>Sem peça vertical</li>
               </ul>
             </details>
@@ -253,22 +252,22 @@
             </div>
           </article>
 
-          <article class="package-col is-full">
-            <span class="package-badge">Mais completo</span>
+          <article class="package-col is-recommended is-full">
+            <span class="package-badge">Recomendado</span>
             <h3>Experience</h3>
             <p class="package-sub">Narrativa audiovisual</p>
             <p class="package-price">R$ 2.990</p>
-            <p class="package-pix">Pix R$ 2.840</p>
+            <p class="package-pix">Pix R$ 2.800</p>
             <ul class="package-list">
-              <li>Até 3h30 · até 80 fotos</li>
+              <li>Até 2h30 · ~55 fotos</li>
               <li>Filme até 90s · peça vertical</li>
             </ul>
             <details class="package-more">
               <summary>Ver tudo que está incluído</summary>
               <ul class="package-list package-list-extra">
-                <li>Até 3 visuais · 2 ambientações</li>
+                <li>Até 3 visuais · até 2 locais</li>
                 <li>Drone* · captação de voz</li>
-                <li>Narrativa personalizada · prévia prioritária</li>
+                <li>Narrativa personalizada</li>
               </ul>
             </details>
             <div class="plan-actions plan-actions--dual">
@@ -314,10 +313,10 @@
         <div class="compare-mobile" aria-live="polite">
           <div class="compare-mobile-tabs" role="tablist" aria-label="Comparar por pacote">
             <button type="button" role="tab" id="cmp-tab-essential" aria-selected="false" data-compare-plan="essential">Essencial</button>
-            <button type="button" role="tab" id="cmp-tab-signature" aria-selected="true" data-compare-plan="signature">Signature</button>
-            <button type="button" role="tab" id="cmp-tab-experience" aria-selected="false" data-compare-plan="experience">Experience</button>
+            <button type="button" role="tab" id="cmp-tab-signature" aria-selected="false" data-compare-plan="signature">Signature</button>
+            <button type="button" role="tab" id="cmp-tab-experience" aria-selected="true" data-compare-plan="experience">Experience</button>
           </div>
-          <dl class="compare-mobile-dl" id="compareMobileDl"></dl>
+          <div class="compare-mobile-dl" id="compareMobileDl"></div>
           <button type="button" class="compare-show-table" id="compareShowTable">Comparar lado a lado</button>
         </div>
 
@@ -331,12 +330,12 @@
                 <span class="compare-plan-name">Essencial</span>
                 <span class="compare-plan-desc">Fotografia</span>
               </div>
-              <div class="compare-plan-head compare-col-highlight">
-                <span class="compare-plan-badge">Recomendado</span>
+              <div class="compare-plan-head">
                 <span class="compare-plan-name">Signature</span>
                 <span class="compare-plan-desc">Foto + filme</span>
               </div>
-              <div class="compare-plan-head">
+              <div class="compare-plan-head compare-col-highlight">
+                <span class="compare-plan-badge">Recomendado</span>
                 <span class="compare-plan-name">Experience</span>
                 <span class="compare-plan-desc">Narrativa audiovisual</span>
               </div>
@@ -344,42 +343,43 @@
             <div class="compare-body">
               <div class="compare-row compare-row--section"><div>Produção</div></div>
               <div class="compare-row">
-                <div>Tempo</div><div>1h30</div><div class="compare-col-highlight">2h30</div><div>3h30</div>
+                <div>Tempo</div><div>até 1h30</div><div>até 2h</div><div class="compare-col-highlight">até 2h30</div>
               </div>
               <div class="compare-row">
-                <div>Fotos</div><div>~50</div><div class="compare-col-highlight">até 65</div><div>até 80</div>
+                <div>Fotos</div><div>~35</div><div>~45</div><div class="compare-col-highlight">~55</div>
               </div>
               <div class="compare-row">
-                <div>Cenários</div><div>1 local</div><div class="compare-col-highlight">local + ponto próximo</div><div>até 2 ambientações</div>
+                <div>Visuais</div><div>1</div><div>até 2</div><div class="compare-col-highlight">até 3</div>
               </div>
               <div class="compare-row">
-                <div>Tratamento</div><div><span class="yes-pill">Incluído</span></div><div class="compare-col-highlight"><span class="yes-pill">Incluído</span></div><div><span class="yes-pill">Incluído</span></div>
+                <div>Locais</div><div>1 local</div><div>até 2, o segundo próximo</div><div class="compare-col-highlight">até 2 locais</div>
+              </div>
+              <div class="compare-row">
+                <div>Tratamento</div><div><span class="yes-pill">Incluído</span></div><div><span class="yes-pill">Incluído</span></div><div class="compare-col-highlight"><span class="yes-pill">Incluído</span></div>
               </div>
               <div class="compare-row compare-row--section"><div>Audiovisual</div></div>
               <div class="compare-row">
-                <div>Filme</div><div class="no">—</div><div class="compare-col-highlight">até 60s</div><div>até 90s</div>
+                <div>Filme</div><div class="no">—</div><div>até 60s</div><div class="compare-col-highlight">até 90s</div>
               </div>
               <div class="compare-row">
-                <div>Vertical</div><div class="no">—</div><div class="compare-col-highlight no">—</div><div><span class="yes-pill">Incluído</span></div>
+                <div>Vertical / Reel</div><div class="no">—</div><div class="no">—</div><div class="compare-col-highlight"><span class="yes-pill">Incluído</span></div>
               </div>
               <div class="compare-row">
-                <div>Drone*</div><div class="no">—</div><div class="compare-col-highlight"><span class="yes-pill">Incluído</span></div><div><span class="yes-pill">Incluído</span></div>
+                <div>Drone*</div><div class="no">—</div><div><span class="yes-pill">Incluído</span></div><div class="compare-col-highlight"><span class="yes-pill">Incluído</span></div>
               </div>
               <div class="compare-row">
-                <div>Voz</div><div class="no">—</div><div class="compare-col-highlight no">—</div><div><span class="yes-pill">Incluído</span></div>
+                <div>Voz</div><div class="no">—</div><div class="no">—</div><div class="compare-col-highlight"><span class="yes-pill">Incluído</span></div>
               </div>
               <div class="compare-row">
-                <div>Narrativa</div><div class="no">—</div><div class="compare-col-highlight no">—</div><div><span class="yes-pill">Incluído</span></div>
-              </div>
-              <div class="compare-row">
-                <div>Prévia prioritária</div><div class="no">—</div><div class="compare-col-highlight no">—</div><div><span class="yes-pill">Incluído</span></div>
+                <div>Narrativa</div><div class="no">—</div><div class="no">—</div><div class="compare-col-highlight"><span class="yes-pill">Incluído</span></div>
               </div>
               <div class="compare-row compare-row--section"><div>Investimento</div></div>
               <div class="compare-row compare-row--price">
-                <div>Valor do pacote</div><div>R$ 1.690</div><div class="compare-col-highlight"><strong>R$ 2.490</strong></div><div>R$ 2.990</div>
+                <div>Valor do pacote</div><div>R$ 1.390</div><div>R$ 2.390</div><div class="compare-col-highlight"><strong>R$ 2.990</strong></div>
               </div>
             </div>
           </div>
+          <p class="compare-scroll-hint" id="compareScrollHint" hidden>Arraste para o lado para ver os três pacotes.</p>
         </div>
         <p class="compare-footnote">* Drone sujeito a condições meteorológicas, segurança e regulamentação do local — conforme detalhado nas dúvidas frequentes.</p>
       </div>
@@ -394,12 +394,12 @@
           </div>
           <div class="experience-deltas">
             <div class="delta-item">
-              <strong>+1h</strong>
-              <span>de produção em relação ao Signature (2h30 → 3h30).</span>
+              <strong>+30 min</strong>
+              <span>de produção em relação ao Signature (2h → 2h30).</span>
             </div>
             <div class="delta-item">
-              <strong>+15</strong>
-              <span>fotos finais possíveis (até 65 → até 80).</span>
+              <strong>+10</strong>
+              <span>fotos finais possíveis (~45 → ~55).</span>
             </div>
             <div class="delta-item">
               <strong>+30s</strong>
@@ -407,10 +407,10 @@
             </div>
             <div class="delta-item">
               <strong>+ narrativa</strong>
-              <span>voz profissional, roteiro personalizado e prévia prioritária.</span>
+              <span>voz profissional e roteiro personalizado.</span>
             </div>
           </div>
-          <p class="experience-spot-foot">Também inclui 3º visual, 2ª ambientação e mais espaço para a história respirar — a diferença de R$ 500 entre Signature e Experience reflete essa profundidade, não um “upgrade” superficial.</p>
+          <p class="experience-spot-foot">Também inclui o 3º visual e mais espaço para a história respirar — a diferença de R$ 600 entre Signature e Experience reflete essa profundidade, não um “upgrade” superficial.</p>
         </div>
         <!-- PHOTO 05: EXPERIENCE CINEMA -->
         <figure class="experience-spot-photo reveal-image motion-image-zoom">
@@ -426,7 +426,7 @@
     <section id="pagamento" class="section-payment">
       <div class="container">
         <div class="payment-principles payment-principles--compact" aria-label="Formas de pagamento">
-          <span class="pay-chip">Pix à vista · 5% off</span>
+          <span class="pay-chip">Pix à vista com desconto</span>
           <span class="pay-chip">Pix 3× direto</span>
           <span class="pay-chip">Cartão · até 18×</span>
         </div>
@@ -443,7 +443,7 @@
               <div class="payment-principles payment-principles--full">
                 <div class="payment-principle">
                   <span class="dot" aria-hidden="true"></span>
-                  <div><strong>Pix à vista</strong><span>5% de desconto no valor do projeto.</span></div>
+                  <div><strong>Pix à vista</strong><span>Desconto no valor do projeto, informado no pacote.</span></div>
                 </div>
                 <div class="payment-principle">
                   <span class="dot" aria-hidden="true"></span>
@@ -459,37 +459,37 @@
             <div class="payment-panel">
               <div class="package-selector" role="tablist" aria-label="Selecione o pacote para ver as condições de pagamento">
                 <button class="selector-button" role="tab" type="button" id="tab-essential" aria-selected="false" aria-controls="paymentContent" data-plan="essential">Essencial</button>
-                <button class="selector-button" role="tab" type="button" id="tab-signature" aria-selected="true" aria-controls="paymentContent" data-plan="signature">Signature</button>
-                <button class="selector-button" role="tab" type="button" id="tab-experience" aria-selected="false" aria-controls="paymentContent" data-plan="experience">Experience</button>
+                <button class="selector-button" role="tab" type="button" id="tab-signature" aria-selected="false" aria-controls="paymentContent" data-plan="signature">Signature</button>
+                <button class="selector-button" role="tab" type="button" id="tab-experience" aria-selected="true" aria-controls="paymentContent" data-plan="experience">Experience</button>
               </div>
 
-              <div class="payment-body" id="paymentContent" role="tabpanel" aria-live="polite" tabindex="0" aria-labelledby="tab-signature">
+              <div class="payment-body" id="paymentContent" role="tabpanel" aria-live="polite" tabindex="0" aria-labelledby="tab-experience">
                 <div class="payment-title-row">
                   <div>
                     <small>Pacote selecionado</small>
-                    <strong id="payPlanName">Signature</strong>
+                    <strong id="payPlanName">Experience</strong>
                   </div>
-                  <span class="selected-badge" id="payBadge">RECOMENDADO</span>
+                  <span class="selected-badge" id="payBadge">Recomendado</span>
                 </div>
-                <p class="pay-list-price">Valor do pacote: <strong id="payListPrice">R$ 2.490</strong></p>
+                <p class="pay-list-price">Valor do pacote: <strong id="payListPrice">R$ 2.990</strong></p>
 
                 <div class="payment-options">
                   <div class="pay-option pay-option--pix">
                     <div class="pay-pix-badges">
                       <span class="pay-best-badge">Melhor valor</span>
-                      <span class="pay-discount-pill" id="payDiscountPill">−5% no Pix</span>
+                      <span class="pay-discount-pill" id="payDiscountPill">−6% no Pix</span>
                     </div>
                     <div class="pay-option-head">
                       <strong>Pix à vista</strong>
-                      <strong class="pay-value" id="payPix">R$ 2.360</strong>
+                      <strong class="pay-value" id="payPix">R$ 2.800</strong>
                     </div>
-                    <p>Condição com 5% de desconto.</p>
+                    <p>Condição com desconto no Pix.</p>
                   </div>
 
                   <div class="pay-option pay-option--direct">
                     <div class="pay-option-head">
                       <strong>Pix parcelado direto</strong>
-                      <strong class="pay-value" id="payDirect">3× de R$ 830</strong>
+                      <strong class="pay-value" id="payDirect">3× de R$ 930</strong>
                     </div>
                     <p>Sem juros. A última parcela deve estar quitada antes do ensaio.</p>
                   </div>
@@ -499,7 +499,7 @@
                       <strong>Cartão de crédito</strong>
                       <strong class="pay-value">Até 18×</strong>
                     </div>
-                    <span class="pay-label-mp">Simulação no cartão · acréscimos da operadora</span>
+                    <span class="pay-label-mp">Simulação no cartão · acréscimos do parcelamento</span>
 
                     <details class="pay-card-sim">
                       <summary class="pay-sim-button">
@@ -515,21 +515,29 @@
                         </div>
                         <div class="mp-row">
                           <div>1× no cartão<small>valor total cobrado</small></div>
-                          <strong id="mp1x">R$ 2.620,50</strong>
+                          <strong id="mp1x">R$ 3.146,71</strong>
                         </div>
                         <div class="mp-row">
-                          <div>12× no cartão<small id="mp12Total">total: R$ 3.199,89</small></div>
-                          <strong id="mp12x">12× R$ 266,66</strong>
+                          <div>3× no cartão<small id="mp3Total">total: R$ 3.500,09</small></div>
+                          <strong id="mp3x">3× R$ 1.166,70</strong>
                         </div>
                         <div class="mp-row">
-                          <div>18× no cartão<small id="mp18Total">total: R$ 3.406,39</small></div>
-                          <strong id="mp18x">18× R$ 189,24</strong>
+                          <div>6× no cartão<small id="mp6Total">total: R$ 3.597,32</small></div>
+                          <strong id="mp6x">6× R$ 599,55</strong>
+                        </div>
+                        <div class="mp-row">
+                          <div>12× no cartão<small id="mp12Total">total: R$ 3.842,45</small></div>
+                          <strong id="mp12x">12× R$ 320,20</strong>
+                        </div>
+                        <div class="mp-row">
+                          <div>18× no cartão<small id="mp18Total">total: R$ 4.090,41</small></div>
+                          <strong id="mp18x">18× R$ 227,24</strong>
                         </div>
                       </div>
                     </details>
 
                     <p class="payment-footnote">
-                      Valores de cartão conforme simulação do link em 02/10/2026, exibidos antes da confirmação.
+                      Valores de cartão conforme simulação do link em 03/10/2026, exibidos antes da confirmação.
                     </p>
                   </div>
                 </div>
@@ -614,7 +622,7 @@
           </details>
           <details>
             <summary>O valor do cartão é diferente do Pix?</summary>
-            <p>Sim. Pix à vista: 5% de desconto. No cartão, a operadora aplica tarifa e acréscimos de parcelamento — tudo visível no link antes de confirmar.</p>
+            <p>Sim. Pix à vista tem desconto em relação ao valor do pacote. No cartão, há tarifa e acréscimos de parcelamento — tudo visível no link antes de confirmar.</p>
           </details>
         </div>
       </div>
@@ -651,9 +659,9 @@
   <aside class="mobile-cta" aria-label="Contato rápido">
     <div class="mobile-cta-copy">
       <small>Recomendado</small>
-      <strong>Signature</strong>
+      <strong>Experience</strong>
     </div>
-    <a class="button button-primary wa-cta" href="https://wa.me/5531995592422" data-wa-suffix=" Tenho interesse no pacote Signature." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="button button-primary wa-cta" href="https://wa.me/5531995592422" data-wa-suffix=" Tenho interesse no pacote Experience." target="_blank" rel="noopener noreferrer">WhatsApp</a>
   </aside>
 
   <script src="assets/js/app.min.js" defer></script>
