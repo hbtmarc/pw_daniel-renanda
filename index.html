@@ -10,7 +10,7 @@
       var theme = null;
       try { theme = localStorage.getItem('prewedding-theme'); } catch (e) {}
       if (theme !== 'dark' && theme !== 'light') {
-        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        theme = 'light';
       }
       d.dataset.theme = theme;
     })();

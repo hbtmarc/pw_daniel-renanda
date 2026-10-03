@@ -42,7 +42,7 @@ Verificado também com axe-core: 0 violações em 320, 390, 768 e 1440 px, nos t
 
 ### SEO e compartilhamento
 - Open Graph e Twitter Card com imagem 1200×630, `canonical`, favicon SVG e `apple-touch-icon`, `<noscript>`, título e descrição revisados, `noindex, nofollow`.
-- Tema respeita `prefers-color-scheme` quando não há escolha salva, definido antes da pintura (sem flash).
+- Tema padrão é claro quando não há escolha salva em `localStorage` (`prewedding-theme`); escuro só após o usuário alternar, definido antes da pintura (sem flash).
 
 ### Design (frontend-design e ui-ux-pro-max)
 - Removidos os destaques de palavra solta no H1 ("vocês", "cinema") e o rótulo redundante "Pré-wedding" acima do título.
