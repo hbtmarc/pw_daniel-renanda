@@ -9,8 +9,8 @@
 
   var CONFIG = {
     couple: {
-      relationshipStart: '2022-07-01',
-      relationshipStartLabel: '01/07/22'
+      relationshipStart: '2023-07-01',
+      relationshipStartLabel: '01/07/23'
     },
     whatsapp: {
       phone: '5531995592422',

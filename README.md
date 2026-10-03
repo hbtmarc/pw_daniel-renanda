@@ -60,7 +60,7 @@ sh scripts/build.sh
 
 Isso sobrescreve `hero-*`, `detail-*`, `story-*`, `cinema-*` e `og-image.jpg` em `assets/img/`. O hero usa `02-detail.png` (retrato principal) e o inset `01-hero.png`.
 
-A data do namoro (`2022-07-01`) fica em `plans.js` → `config.couple.relationshipStart`; o hero exibe a linha fixa e a contagem “há X anos e Y meses” via `main.js`.
+A data do namoro (`2023-07-01`) fica em `plans.js` → `config.couple.relationshipStart`; o hero exibe a linha fixa e a contagem “há X anos e Y meses” via `main.js`.
 
 ## Pendente: identidade e prova social
 
