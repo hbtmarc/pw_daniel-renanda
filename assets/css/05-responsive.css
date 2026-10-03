@@ -348,10 +348,6 @@ details p { max-width: 100%; margin-right: 0; }
     margin-inline: auto;
   }
   .hero-photo img { width: 100%; }
-  .payment-principles--compact {
-    justify-content: center;
-    gap: 8px;
-  }
   .package-selector {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));

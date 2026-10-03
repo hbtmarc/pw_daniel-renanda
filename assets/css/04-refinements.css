@@ -286,8 +286,8 @@ section { padding-block: var(--space-section); }
   }
 }
 @media (max-width: 767px) {
-  .payment-principles--compact { display: flex; }
-  .payment-principles--full { display: none; }
+  .payment-principles--compact { display: none; }
+  .payment-principles--full { display: block; }
   .payment-stage { padding: 16px; margin-top: 0; }
 }
 .payment-panel {
