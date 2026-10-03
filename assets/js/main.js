@@ -194,6 +194,7 @@
   var compareScrollHint = $('#compareScrollHint');
   if (compareShowTable && compareDesktop && compareMobile) {
     compareShowTable.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 767px)').matches) return;
       compareMobile.classList.add('is-hidden');
       compareDesktop.classList.add('is-forced');
       if (compareScrollHint) compareScrollHint.hidden = false;
@@ -330,14 +331,42 @@
   });
 
   var mobileCta = $('.mobile-cta');
-  var pagamento = $('#pagamento');
+  var mobileMq = window.matchMedia('(max-width: 767px)');
   if (mobileCta) {
-    if (window.matchMedia('(max-width: 767px)').matches) document.body.classList.add('has-sticky-cta');
-    if (pagamento) {
-      new IntersectionObserver(function (entries) {
-        mobileCta.classList.toggle('is-dimmed', entries[0].isIntersecting);
-      }, { threshold: 0.12 }).observe(pagamento);
+    function syncStickyBarHeight() {
+      if (!mobileMq.matches) return;
+      var h = mobileCta.offsetHeight;
+      if (h > 0) document.documentElement.style.setProperty('--sticky-h', h + 'px');
     }
+    function setStickyCtaActive() {
+      document.body.classList.toggle('has-sticky-cta', mobileMq.matches);
+      if (mobileMq.matches) syncStickyBarHeight();
+    }
+    setStickyCtaActive();
+    mobileMq.addEventListener('change', setStickyCtaActive);
+    window.addEventListener('resize', syncStickyBarHeight, { passive: true });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(syncStickyBarHeight);
+    }
+
+    var stickyDimKeys = {};
+    function updateStickyDimmed() {
+      var hide = Object.keys(stickyDimKeys).some(function (k) { return stickyDimKeys[k]; });
+      mobileCta.classList.toggle('is-dimmed', hide);
+    }
+    var stickyDimObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        stickyDimKeys[entry.target.id || entry.target.tagName.toLowerCase()] = entry.isIntersecting;
+      });
+      updateStickyDimmed();
+    }, { threshold: 0.1, rootMargin: '0px 0px -56px 0px' });
+
+    ['pagamento', 'final-cta', 'topo'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) stickyDimObserver.observe(el);
+    });
+    var footerEl = $('footer');
+    if (footerEl) stickyDimObserver.observe(footerEl);
   }
 
   /* —— Revelação das imagens editoriais (único movimento de scroll) —— */

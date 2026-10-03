@@ -56,7 +56,15 @@ body { overflow-x: clip; }
   .hero-signature-editorial { order: 3; }
   .hero-actions-secondary { order: 4; width: 100%; }
   .hero-actions-secondary .button { width: 100%; }
-  .hero-actions-primary { display: block; width: 100%; }
+  .hero-actions-primary {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
   .hero-actions-primary .button { width: 100%; }
   .hero-photo { max-height: min(72svh, 640px); width: 100%; }
 }
@@ -551,11 +559,6 @@ p, .hero-lead {
   text-wrap: pretty;
 }
 
-@media (max-width: 767px) {
-  body.has-sticky-cta {
-    padding-bottom: calc(var(--sticky-h) + env(safe-area-inset-bottom, 0px) + 16px);
-  }
-}
 
 .mobile-cta.is-dimmed {
   opacity: 0;

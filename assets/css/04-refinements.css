@@ -73,15 +73,33 @@ nav a[aria-current="true"]::after { transform: scaleX(1); }
   .hero-editorial .hero-visual { max-width: none; justify-self: stretch; }
 }
 @media (max-width: 767px) {
-  .hero-copy, .hero-actions-primary { display: contents; }
-  .hero-eyebrow { order: 1; align-self: center; text-align: center; }
-  .hero-editorial h1 { order: 2; }
-  .hero-lead { order: 3; margin-inline: auto; text-align: center; max-width: 34ch; }
-  .hero-actions-primary .button-primary { order: 4; width: 100%; max-width: 22rem; margin-inline: auto; }
-  .hero-visual { order: 5; width: 100%; }
-  .hero-signature-editorial { order: 6; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 18px 20px; background: var(--bg-elevated); margin-top: 4px; width: 100%; text-align: center; }
-  .hero-actions-primary .button-secondary { order: 7; width: 100%; max-width: 22rem; margin-inline: auto; }
-  .hero-actions-primary { width: 100%; max-width: 22rem; margin-inline: auto; }
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  .hero-lead { margin-inline: auto; text-align: center; max-width: 34ch; }
+  .hero-actions-primary {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+  .hero-actions-primary .button { width: 100%; }
+  .hero-signature-editorial {
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 18px 20px;
+    background: var(--bg-elevated);
+    margin-top: 4px;
+    width: 100%;
+    text-align: center;
+  }
 }
 @media (orientation: landscape) and (max-height: 500px) {
   .hero-copy { display: block; grid-column: 1; grid-row: 1 / span 2; }
@@ -270,7 +288,16 @@ section { padding-block: var(--space-section); }
   .payment-principles--full { display: none; }
   .payment-stage { padding: 16px; margin-top: 0; }
 }
-.payment-panel { border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.payment-panel {
+  border-radius: var(--r-xl);
+  overflow: visible;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.payment-body {
+  overflow: hidden;
+  border-radius: 0 0 var(--r-xl) var(--r-xl);
+}
 .package-selector { border-radius: var(--r-pill); margin: 12px; padding: 5px; border: 0; background: var(--surface-2); }
 .selector-button { border-radius: var(--r-pill); transition: background .25s ease, color .25s ease, box-shadow .25s ease; }
 .selector-button[aria-selected="true"] {

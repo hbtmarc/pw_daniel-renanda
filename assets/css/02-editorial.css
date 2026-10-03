@@ -508,6 +508,14 @@ nav a:focus-visible::after { transform: scaleX(1); }
   background: var(--bg-elevated);
 }
 
+@media (max-width: 767px) {
+  .compare-head > div:first-child,
+  .compare-row:not(.compare-row--section) > div:first-child {
+    position: static;
+    box-shadow: none;
+  }
+}
+
 .payment-panel {
   background: var(--level-2);
   border-radius: var(--r-md);

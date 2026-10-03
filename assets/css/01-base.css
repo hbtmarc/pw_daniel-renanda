@@ -1207,8 +1207,9 @@ footer {
   }
 
   .hero::before {
-    width: 390px;
-    right: -190px;
+    width: min(100%, 390px);
+    right: 0;
+    left: auto;
   }
 
   h1 {
@@ -1272,53 +1273,6 @@ footer {
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .final-cta {
-    padding-bottom: 100px;
-  }
-
-  .mobile-cta {
-    display: grid;
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: max(12px, env(safe-area-inset-bottom));
-    z-index: 90;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
-    align-items: center;
-    padding: 8px;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    background: color-mix(in srgb, var(--surface) 92%, transparent);
-    box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-  }
-
-  .mobile-cta-copy {
-    padding-left: 8px;
-    min-width: 0;
-  }
-
-  .mobile-cta-copy small {
-    display: block;
-    color: var(--text-faint);
-    font-size: 10px;
-  }
-
-  .mobile-cta-copy strong {
-    display: block;
-    font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .mobile-cta .button {
-    min-height: 44px;
-    padding: 10px 16px;
   }
 }
 
